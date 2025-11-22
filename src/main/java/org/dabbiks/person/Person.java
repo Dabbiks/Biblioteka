@@ -14,7 +14,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return name + " hej witamy ciebie " + surname;
+        return name + " hej witamy ciebie 123 " + surname;
     }
 
     public abstract String getIdentificator();
