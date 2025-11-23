@@ -5,9 +5,9 @@ import org.dabbiks.data.Data;
 import org.dabbiks.data.DataType;
 import org.dabbiks.item.Audiobook;
 import org.dabbiks.item.Book;
-import org.dabbiks.library.accounts.EmployeeInterface;
-import org.dabbiks.library.accounts.OwnerInterface;
-import org.dabbiks.library.accounts.UserInterface;
+import org.dabbiks.library.interfaces.employee.EmployeeInterface;
+import org.dabbiks.library.interfaces.owner.OwnerInterface;
+import org.dabbiks.library.interfaces.user.UserInterface;
 import org.dabbiks.person.Employee;
 import org.dabbiks.person.User;
 

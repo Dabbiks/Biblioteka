@@ -1,4 +1,4 @@
-package org.dabbiks.library.accounts;
+package org.dabbiks.library.interfaces.owner;
 
 public class OwnerInterface {
 

@@ -1,4 +1,4 @@
-package org.dabbiks.library.accounts;
+package org.dabbiks.library.interfaces;
 
 public enum ErrorType {
     NULL(""),

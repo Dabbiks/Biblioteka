@@ -1,6 +1,7 @@
-package org.dabbiks.library.accounts;
+package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
+import org.dabbiks.library.interfaces.ErrorType;
 import org.dabbiks.person.User;
 import org.dabbiks.person.card.Card;
 
@@ -154,6 +155,8 @@ public class UserInterface {
         System.out.println(name + " | " + "Nr. " + index);
         System.out.println("Jesteś teraz zalogowany");
         System.out.println(" ");
+        library.loggedUser = findUser(i);
+        if (library.loggedUser == null) throw new RuntimeException();
     }
 
     private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {
@@ -178,6 +181,14 @@ public class UserInterface {
             }
         }
         return 0;
+    }
+
+    private User findUser(int index) {
+        for (User user : library.users) {
+            if (user.card.getId() == index)
+                return user;
+        }
+        return null;
     }
 
 }
