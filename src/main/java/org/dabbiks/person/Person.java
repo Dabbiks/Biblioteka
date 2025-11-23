@@ -17,6 +17,8 @@ public abstract class Person {
         return name + " hej witamy ciebie 123 " + surname;
     }
 
+    public abstract String generateFileName();
+
     public abstract String getIdentificator();
 
     public String getName() {

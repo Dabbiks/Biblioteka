@@ -9,4 +9,8 @@ public class Book extends Item {
         this.pages = pages;
     }
 
+    @Override
+    public String generateFileName() {
+        return title.replaceAll(" ", "");
+    }
 }

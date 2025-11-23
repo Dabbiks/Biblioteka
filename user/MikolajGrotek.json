@@ -1,0 +1,9 @@
+{
+  "card": {
+    "id": 1,
+    "status": "WHITE_CARD"
+  },
+  "name": "Mikolaj",
+  "surname": "Grotek",
+  "pesel": "12345678910"
+}

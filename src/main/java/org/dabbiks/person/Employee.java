@@ -17,6 +17,11 @@ public class Employee extends Person {
         return "Identyfikator pracownika: " + employeeId;
     }
 
+    @Override
+    public String generateFileName() {
+        return getName() + getSurname();
+    }
+
     public double getSalary() {
         return salary;
     }

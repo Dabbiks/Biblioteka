@@ -19,4 +19,6 @@ public abstract class Item {
         return "Tytuł: " + title + ", Autor: " + author + ", Rok wydania: " + releaseDate + ", Gatunek: " + genre.name();
     }
 
+    public abstract String generateFileName();
+
 }

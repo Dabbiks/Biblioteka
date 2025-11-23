@@ -1,6 +1,9 @@
 package org.dabbiks.person;
 
+import org.dabbiks.library.Library;
 import org.dabbiks.person.card.Card;
+
+import static org.dabbiks.Main.library;
 
 public class User extends Person {
 
@@ -19,6 +22,22 @@ public class User extends Person {
     @Override
     public String getIdentificator() {
         return "Identyfikator użytkownika: " + card.getId() + ", Status: " + card.getStatus().name();
+    }
+
+    @Override
+    public String generateFileName() {
+        return getName() + getSurname();
+    }
+
+    public static boolean canRegister(String string) {
+        boolean bool = true;
+        for (User user : library.users) {
+            if (user.getPesel().equals(string)) {
+                bool = false;
+                break;
+            }
+        }
+        return bool;
     }
 
 }
