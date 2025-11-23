@@ -29,6 +29,9 @@ public class Library {
     public EmployeeInterface employeeInterface = new EmployeeInterface();
     public OwnerInterface ownerInterface = new OwnerInterface();
 
+    public User loggedUser = null;
+    public Employee loggedEmployee = null;
+
     public Library() throws IOException {
     }
 
@@ -38,6 +41,7 @@ public class Library {
         String answer = "";
 
         while (!options.contains(answer)) {
+            Utils.clearConsole();
             System.out.println("Wybierz, na jaki typ konta chcesz się zalogować");
             System.out.println("Wpisz odpowiednią cyfrę w konsoli, żeby przejść dalej");
             System.out.println("1. Użytkownik");

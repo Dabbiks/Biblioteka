@@ -40,7 +40,14 @@ public class UserInterface {
             System.out.println("Krok 1: Wpisz swoje imię (2-20 znaków)");
             System.out.println("..... | ..... | .....");
             name = scanner.nextLine();
+
+            if (name.equals("X")) {
+                library.LobbyInterface();
+                return;
+            }
+
             Utils.clearConsole();
+
             if (isCorrect(name, 2, 20, true, false) != ErrorType.NULL)
                 System.out.println(isCorrect(name, 2, 20, true, false).getString());
         }
@@ -50,7 +57,14 @@ public class UserInterface {
             System.out.println("Krok 2: Wpisz swoje nazwisko (2-20 znaków)");
             System.out.println(name + " | ..... | .....");
             surname = scanner.nextLine();
+
+            if (surname.equals("X")) {
+                library.LobbyInterface();
+                return;
+            }
+
             Utils.clearConsole();
+
             if (isCorrect(surname, 2, 20, true, false) != ErrorType.NULL)
                 System.out.println(isCorrect(surname, 2, 20, true, false).getString());
         }
@@ -60,7 +74,14 @@ public class UserInterface {
             System.out.println("Krok 3: Wpisz swój pesel (11 znaków)");
             System.out.println(name + " | " + surname + " | .....");
             pesel = scanner.nextLine();
+
+            if (pesel.equals("X")) {
+                library.LobbyInterface();
+                return;
+            }
+
             Utils.clearConsole();
+
             if (!User.canRegister(pesel)) System.out.println(ErrorType.ALREADY_REGISTERED);
             if (isCorrect(pesel, 11, 11, false, true) != ErrorType.NULL)
                 System.out.println(isCorrect(pesel, 11, 11, false, true).getString());
@@ -69,6 +90,7 @@ public class UserInterface {
         int cardId = Card.getNextId();
         Card card = new Card(cardId);
         User user = new User(name, surname, pesel, card);
+
         System.out.println(name + " | " + surname + " | " + pesel);
         System.out.println("Rejestracja ukończona pomyślnie");
         System.out.println("Twoja karta ma nr. " + cardId);
@@ -86,7 +108,14 @@ public class UserInterface {
             System.out.println("Krok 1: Wpisz swoje imię (2-20 znaków)");
             System.out.println("..... | Nr. ... ");
             name = scanner.nextLine();
+
+            if (name.equals("X")) {
+                library.LobbyInterface();
+                return;
+            }
+
             Utils.clearConsole();
+
             if (isCorrect(name, 2, 20, true, false) != ErrorType.NULL) {
                 System.out.println(isCorrect(name, 2, 20, true, false).getString());
                 continue;
@@ -101,7 +130,14 @@ public class UserInterface {
             System.out.println("Krok 2: Wpisz numer karty bibliotecznej (1-3 znaki)");
             System.out.println(name + " | Nr. ... ");
             index = scanner.nextLine();
+
+            if (index.equals("X")) {
+                library.LobbyInterface();
+                return;
+            }
+
             Utils.clearConsole();
+
             ErrorType errorType = isCorrect(index, 1, 3, false, true);
             if (errorType != ErrorType.NULL) {
                 System.out.println(errorType.getString());

@@ -2,9 +2,9 @@ package org.dabbiks.person;
 
 public abstract class Person {
 
-    private String name;
-    private String surname;
-    private String pesel;
+    private final String name;
+    private final String surname;
+    private final String pesel;
 
     public Person(String name, String surname, String pesel) {
         this.name = name;
@@ -14,7 +14,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return name + " hej witamy ciebie 123 " + surname;
+        return name + "  " + surname;
     }
 
     public abstract String generateFileName();
