@@ -19,6 +19,9 @@ import java.util.Scanner;
 
 public class Library {
 
+    // Poniższe listy books, audiobooks, employees i users przechowują wszystkie zapisywane dane
+    // Poradnik wkrótce
+
     public List<Book> books = Data.loadAll(DataType.BOOK, Book.class);
     public List<Audiobook> audiobooks = Data.loadAll(DataType.AUDIOBOOK, Audiobook.class);
     public List<Employee> employees = Data.loadAll(DataType.EMPLOYEE, Employee.class);

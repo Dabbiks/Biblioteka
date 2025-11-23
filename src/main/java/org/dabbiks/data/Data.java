@@ -17,6 +17,14 @@ public class Data {
 
     public static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+    // CZYM JEST KLASA DATA
+    // W klasie jest cały system zapisujący pliki do formatu .json na komputerze
+    // Zawartość plików jest pobierana przy otwieraniu programu i zapisywana przy zamknięciu
+    // dzięki czemu nie musimy co chwilę pobierać ich w kodzie. Nie ma potrzeby nic tu robić
+    // Jeśli potrzebujesz w jakimś fragmencie dostępu do danych korzystaj z list utworzonych w
+    // klasie Library, tam znajdziesz również poradnik jak to zrobić
+
+    // Metoda do zapisywania pojedyńczego pliku (raczej do usunięcia)
     public static <T> void toJson(DataType dataType, String fileName, T object) throws IOException {
         String directoryPath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase();
         File directory = new File(directoryPath);
@@ -32,6 +40,7 @@ public class Data {
         }
     }
 
+    // Metoda do pobierania pojedyńczego pliku (raczej do usunięcia)
     public static <T> T fromJson(DataType dataType, String fileName, Class<T> object) throws IOException {
         String filePath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase() + "/" + fileName + ".json";
 
@@ -40,6 +49,8 @@ public class Data {
         }
     }
 
+    // Metoda do pobierania wszystkich plików danej klasy
+    // Użycie na przykładzie książek: List<Book> list = library.loadAll(DataType.BOOK, Book.class);
     public static <T> List<T> loadAll(DataType dataType, Class<T> object) throws IOException {
         String filePath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase();
         File fileFolder = new File(filePath);
@@ -64,6 +75,10 @@ public class Data {
         return objects;
     }
 
+    // Metoda do zapisywania wszystkich plików danej klasy
+    // Użycie na przykładzie książek:
+    // List<Book> list = List.of{book1, book2, book3};
+    // library.saveAll(DataType.BOOK, list);
     public static <T> void saveAll(DataType dataType, List<T> objects) throws IOException {
         String directoryPath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase();
         File directory = new File(directoryPath);
@@ -87,6 +102,7 @@ public class Data {
 
     }
 
+    // Metoda do czyszczenia całej bazy plików danej klasy
     public static void clearAll(DataType dataType) {
         String filePath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase();
         File fileFolder = new File(filePath);
