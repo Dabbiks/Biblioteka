@@ -1,8 +1,12 @@
 package org.dabbiks.person.card;
 
+import org.dabbiks.person.User;
+
+import static org.dabbiks.Main.library;
+
 public class Card {
 
-    private int id;
+    private final int id;
     private Status status;
 
     public Card(int id) {
@@ -20,6 +24,17 @@ public class Card {
 
     public Status getStatus() {
         return status;
+    }
+
+    public static int getNextId() {
+        int index = 1;
+        for (User user : library.users) {
+            if (user.card.getId() > index) {
+                index = user.card.getId();
+            }
+        }
+        index++;
+        return index;
     }
 
 }

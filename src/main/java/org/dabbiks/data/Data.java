@@ -107,8 +107,11 @@ public class Data {
         String filePath = System.getProperty("user.dir") + "/" + dataType.name().toLowerCase();
         File fileFolder = new File(filePath);
         if (!fileFolder.exists() || !fileFolder.isDirectory()) return;
-        for (File file : Objects.requireNonNull(fileFolder.listFiles())) {
-            file.delete();
+        File[] files = fileFolder.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                file.delete();
+            }
         }
     }
 

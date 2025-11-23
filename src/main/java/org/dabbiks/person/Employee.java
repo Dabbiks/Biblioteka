@@ -2,9 +2,9 @@ package org.dabbiks.person;
 
 public class Employee extends Person {
 
-    private int employeeId;
+    private final int employeeId;
     private double salary;
-    private String password;
+    private final String password;
 
     public Employee(String name, String surname, String pesel, String password, int employeeId) {
         super(name, surname, pesel);

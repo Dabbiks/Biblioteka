@@ -10,17 +10,16 @@ public class Main {
 
     public static Library library;
 
-    static {
-        try {
-            library = new Library();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public static void main(String[] args) {
-        library.LobbyInterface();
 
+        {
+            try {
+                library = new Library();
+                library.LobbyInterface();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 

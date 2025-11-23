@@ -25,9 +25,7 @@ public abstract class Person {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
-    }
+    public String getSurname() { return surname; }
 
     public String getPesel() {
         return pesel;
