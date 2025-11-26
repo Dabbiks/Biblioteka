@@ -7,7 +7,8 @@ public enum ErrorType {
     ONLY_LETTERS("⚠ Wpisany parametr powinien zawierać jedynie litery"),
     ONLY_NUMBERS("⚠ Wpisany parametr powinien zawierać jedynie cyfry"),
     ALREADY_REGISTERED("⚠ Konto o podanym numerze PESEL już istnieje"),
-    NOT_REGISTERED("⚠ Wpisany parametr nie znajduje się w naszym systemie");
+    NOT_REGISTERED("⚠ Wpisany parametr nie znajduje się w naszym systemie"),
+    WRONG_PASSWORD("⚠ Wpisane hasło nie pasuje do podanego numeru pracownika");
 
     private final String string;
 

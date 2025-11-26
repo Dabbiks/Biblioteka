@@ -16,13 +16,15 @@ public class Employee extends Person {
 
     @Override
     public String getIdentificator() {
-        return "Identyfikator pracownika: " + employeeId;
+        return "" + employeeId;
     }
 
     @Override
     public String generateFileName() {
         return getName() + getSurname();
     }
+
+    public int getEmployeeId() { return employeeId; }
 
     public boolean isOwner() {
         return isOwner;

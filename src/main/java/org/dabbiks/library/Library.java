@@ -5,7 +5,7 @@ import org.dabbiks.data.Data;
 import org.dabbiks.data.DataType;
 import org.dabbiks.item.Audiobook;
 import org.dabbiks.item.Book;
-import org.dabbiks.library.interfaces.employee.EmployeeInterface;
+import org.dabbiks.library.interfaces.employee.EmployeeLogin;
 import org.dabbiks.library.interfaces.owner.OwnerInterface;
 import org.dabbiks.library.interfaces.user.UserLogin;
 import org.dabbiks.person.Employee;
@@ -26,7 +26,7 @@ public class Library {
     public List<User> users = Data.loadAll(DataType.USER, User.class);
 
     public UserLogin userLogin = new UserLogin();
-    public EmployeeInterface employeeInterface = new EmployeeInterface();
+    public EmployeeLogin employeeLogin = new EmployeeLogin();
     public OwnerInterface ownerInterface = new OwnerInterface();
 
     public User loggedUser = null;
@@ -53,7 +53,7 @@ public class Library {
         }
 
         if (answer.equals("1")) userLogin.userInterface();
-        if (answer.equals("2")) employeeInterface.employeeInterface();
+        if (answer.equals("2")) employeeLogin.employeeInterface();
         if (answer.equals("3")) ownerInterface.ownerInterface();
     }
 }
