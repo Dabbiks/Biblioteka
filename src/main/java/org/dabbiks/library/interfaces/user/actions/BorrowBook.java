@@ -4,6 +4,7 @@ public class BorrowBook {
 
     public void borrowBook() {
 
-    System.out.println("Wybierz książkę")
+    System.out.println("Wybierz książkę");
+
     }
 }
