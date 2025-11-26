@@ -1,6 +1,8 @@
 package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
+import org.dabbiks.library.interfaces.user.actions.BorrowBook;
+import org.dabbiks.library.interfaces.user.actions.CheckCard;
 import org.dabbiks.person.User;
 
 import java.util.List;
@@ -15,6 +17,9 @@ public class UserInterface {
 
     User user = library.loggedUser;
 
+    public BorrowBook borrowBook = new BorrowBook();
+    public CheckCard checkCard = new CheckCard();
+
     public void UserInterface() {
         while (!options.contains(answer)) {
             Utils.clearConsole();
@@ -25,7 +30,8 @@ public class UserInterface {
             System.out.println("3. Zwróć książkę");
             System.out.println("4. Wypisz się z biblioteki");
             answer = scanner.nextLine();
-            if (answer.equals("1"))
+            if (answer.equals("1")) borrowBook.borrowBook();
+            if (answer.equals("2")) checkCard.checkCard();
 
         }
 
