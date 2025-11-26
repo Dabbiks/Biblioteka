@@ -25,7 +25,7 @@ public class EmployeeLogin {
         int i = 0;
         while (isCorrect(index, 1, 3, false, true) != ErrorType.NULL || i == 0) {
             System.out.println("Logowanie na konto. Wpisz X, żeby wyjść");
-            System.out.println("Krok 2: Wpisz numer karty bibliotecznej (1-3 znaki)");
+            System.out.println("Krok 1: Wpisz numer pracownika (1-3 znaki)");
             System.out.println("Nr. ... | .....");
             index = scanner.nextLine();
 
@@ -49,10 +49,10 @@ public class EmployeeLogin {
             index = Integer.toString(i);
         }
 
-        while (isCorrect(password, 2, 32, true, true) != ErrorType.NULL || checkPassword(password, i) != null) {
+        while (isCorrect(password, 10, 32, true, true) != ErrorType.NULL || checkPassword(password, i) == null) {
             System.out.println("Logowanie na konto. Wpisz X, żeby wyjść");
             System.out.println("Krok 2: Wpisz swoje hasło (10-32 znaki)");
-            System.out.println("Nr. ... | .....");
+            System.out.println("Nr. " + index + "  | .....");
             password = scanner.nextLine();
 
             if (password.equals("X")) {
@@ -70,7 +70,7 @@ public class EmployeeLogin {
                 System.out.println(ErrorType.WRONG_PASSWORD.getString());
         }
 
-        System.out.println("Nr. " + index + " | " + password);
+        System.out.println("Nr. " + index + " | " + "**********");
         System.out.println("Jesteś teraz zalogowany");
         System.out.println(" ");
         library.loggedEmployee = checkPassword(password, i);

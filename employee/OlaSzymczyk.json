@@ -1,0 +1,9 @@
+{
+  "employeeId": 1,
+  "password": "KonikKosowski",
+  "isOwner": false,
+  "salary": 0.0,
+  "name": "Ola",
+  "surname": "Szymczyk",
+  "pesel": "11029384756"
+}

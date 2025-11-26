@@ -3,6 +3,7 @@ package org.dabbiks;
 import org.dabbiks.data.Data;
 import org.dabbiks.data.DataType;
 import org.dabbiks.library.Library;
+import org.dabbiks.person.Employee;
 
 import java.io.IOException;
 
