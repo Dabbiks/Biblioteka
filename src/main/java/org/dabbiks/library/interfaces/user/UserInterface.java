@@ -24,10 +24,10 @@ public class UserInterface {
     public ReturnBook returnBook = new ReturnBook();
     public Unregister unregister = new Unregister();
 
-    public void UserInterface() {
+    public void userInterface() {
         while (!options.contains(answer)) {
             Utils.clearConsole();
-            System.out.println("Witaj" + user.getName());
+            System.out.println("Witaj " + user.getName());
             System.out.println("Wybierz co chcesz zrobic");
             System.out.println("1. Wynajmij książkę");
             System.out.println("2. Sprawdź swoją kartę");

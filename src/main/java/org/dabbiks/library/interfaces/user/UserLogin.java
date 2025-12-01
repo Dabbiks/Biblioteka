@@ -158,7 +158,7 @@ public class UserLogin {
         library.loggedUser = findUser(i);
         if (library.loggedUser == null) throw new RuntimeException();
         UserInterface ui = new UserInterface();
-        ui.UserInterface();
+        ui.userInterface();
     }
 
     private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {

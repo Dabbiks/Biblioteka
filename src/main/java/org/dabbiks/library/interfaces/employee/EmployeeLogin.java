@@ -1,10 +1,8 @@
 package org.dabbiks.library.interfaces.employee;
-
 import org.dabbiks.Utils;
 import org.dabbiks.library.interfaces.ErrorType;
 import org.dabbiks.person.Employee;
 import org.dabbiks.person.User;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,7 +73,11 @@ public class EmployeeLogin {
         System.out.println(" ");
         library.loggedEmployee = checkPassword(password, i);
         if (library.loggedEmployee == null) throw new RuntimeException();
+
+        EmployeeInterface empInterface = new EmployeeInterface();
+        empInterface.employeeInterface();
     }
+
 
     private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {
         if (string.length() < minimal) return ErrorType.TOO_SHORT;
@@ -101,5 +103,7 @@ public class EmployeeLogin {
         }
         return null;
     }
+
+
 
 }
