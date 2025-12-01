@@ -3,6 +3,7 @@ package org.dabbiks.library.interfaces.user;
 import org.dabbiks.Utils;
 import org.dabbiks.library.interfaces.user.actions.BorrowBook;
 import org.dabbiks.library.interfaces.user.actions.CheckCard;
+import org.dabbiks.library.interfaces.user.actions.ReturnBook;
 import org.dabbiks.person.User;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserInterface {
 
     public BorrowBook borrowBook = new BorrowBook();
     public CheckCard checkCard = new CheckCard();
+    public ReturnBook returnBook = new ReturnBook();
 
     public void UserInterface() {
         while (!options.contains(answer)) {
@@ -32,6 +34,7 @@ public class UserInterface {
             answer = scanner.nextLine();
             if (answer.equals("1")) borrowBook.borrowBook();
             if (answer.equals("2")) checkCard.checkCard();
+            if(answer.equals("3")) returnBook.returnBook();
 
         }
 

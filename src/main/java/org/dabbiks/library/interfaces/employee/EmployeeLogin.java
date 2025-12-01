@@ -72,7 +72,6 @@ public class EmployeeLogin {
 
         System.out.println("Nr. " + index + " | " + "**********");
         System.out.println("Jesteś teraz zalogowany");
-
         System.out.println(" ");
         library.loggedEmployee = checkPassword(password, i);
         if (library.loggedEmployee == null) throw new RuntimeException();
