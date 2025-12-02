@@ -38,7 +38,7 @@ public class EmployeeInterface {
             System.out.println("3. Dodaj nową książkę");
             System.out.println("4. Złóż wypowiedzenie");
             answer = scanner.nextLine();
-            if (answer.equals("1")) newUser.addNewUser();
+            if (answer.equals("1")) newUser.addUser();
             if (answer.equals("2")) searchBook.searchBook();
             if (answer.equals("3")) addBook.addNewBook();
             if (answer.equals("4")) quitJob.quitJob();
