@@ -1,4 +1,4 @@
-package org.dabbiks.library.interfaces.employee.e_actions;
+package org.dabbiks.library.interfaces.employee.actions;
 
 import org.dabbiks.Utils;
 import org.dabbiks.data.Data;

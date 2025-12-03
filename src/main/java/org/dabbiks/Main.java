@@ -6,10 +6,12 @@ import org.dabbiks.library.Library;
 import org.dabbiks.person.Employee;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
     public static Library library;
+    public static Scanner scanner;
 
     public static void main(String[] args) {
 

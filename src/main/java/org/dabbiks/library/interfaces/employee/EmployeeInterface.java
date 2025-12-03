@@ -1,15 +1,11 @@
 package org.dabbiks.library.interfaces.employee;
 import org.dabbiks.Utils;
-import org.dabbiks.library.interfaces.employee.e_actions.AddBook;
-import org.dabbiks.library.interfaces.employee.e_actions.AddNewUser;
-import org.dabbiks.library.interfaces.employee.e_actions.QuitJob;
-import org.dabbiks.library.interfaces.employee.e_actions.SearchBook;
-import org.dabbiks.library.interfaces.user.actions.BorrowBook;
-import org.dabbiks.library.interfaces.user.actions.CheckCard;
-import org.dabbiks.library.interfaces.user.actions.ReturnBook;
-import org.dabbiks.library.interfaces.user.actions.Unregister;
+import org.dabbiks.library.interfaces.employee.actions.AddBook;
+import org.dabbiks.library.interfaces.employee.actions.AddNewUser;
+import org.dabbiks.library.interfaces.employee.actions.QuitJob;
+import org.dabbiks.library.interfaces.employee.actions.SearchBook;
 import org.dabbiks.person.Employee;
-import org.dabbiks.person.User;
+
 import java.util.List;
 import java.util.Scanner;
 
