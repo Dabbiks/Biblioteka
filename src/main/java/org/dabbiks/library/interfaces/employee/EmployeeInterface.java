@@ -37,7 +37,7 @@ public class EmployeeInterface {
             if (answer.equals("1")) newUser.addUser();
             if (answer.equals("2")) searchBook.searchBook();
             if (answer.equals("3")) addBook.addNewBook();
-            if (answer.equals("4")) quitJob.quitJob();
+            if (answer.equals("4")) quitJob.quitJob(employee);
         }
     }
 }
