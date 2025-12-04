@@ -10,7 +10,6 @@ import org.dabbiks.library.interfaces.owner.OwnerInterface;
 import org.dabbiks.library.interfaces.user.UserLogin;
 import org.dabbiks.person.Employee;
 import org.dabbiks.person.User;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
