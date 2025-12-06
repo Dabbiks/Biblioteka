@@ -5,9 +5,9 @@ import org.dabbiks.item.Audiobook;
 import org.dabbiks.item.Book;
 import org.dabbiks.library.interfaces.employee.EmployeeInterface;
 import org.dabbiks.person.User;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.util.*;
+
 import static org.dabbiks.Main.library;
 
 public class SearchBook {
@@ -55,6 +55,12 @@ public class SearchBook {
             }
 
             Utils.clearConsole();
+
+            //Sortowanie ksiązek
+            Collections.sort(searchedBooks);
+
+            //Sortowanie audiobookow
+            searchedAudiobooks.sort(Comparator.comparing(audiobook -> audiobook.title));
 
             // Wyświetlanie wyników
             if (searchedBooks.isEmpty()) {
