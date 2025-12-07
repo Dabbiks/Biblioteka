@@ -50,7 +50,7 @@ public class BorrowBook {
                 }
                 // Zamiana numeru wybranego przez użytkownika (np. 1) na indeks tablicy (np. 0)
                 int index = bookNumber - 1;
-                int index = bookNumber - 1;
+
                 //Sprawdzenie, czy podany numer mieści się w zakresie listy książek
                 if (index < 0 || index >= library.books.size()) {
                     throw new LibraryException("Nieprawidłowy numer. Taka książka nie istnieje.");
