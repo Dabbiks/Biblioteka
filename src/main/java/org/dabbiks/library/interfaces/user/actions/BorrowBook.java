@@ -57,12 +57,13 @@ public class BorrowBook {
                 }
                 // Pobranie konkretnego obiektu książki z listy
                 Book selectedBook = library.books.get(index);
-
+                // Sprawdzenie, czy użytkownik ma już zainicjalizowaną listę wypożyczonych książek
                 if (library.loggedUser.card.borrowedBooks == null) {
+                    //Utworzenie nowej listy jeśli jest taka potrzeba
                     library.loggedUser.card.borrowedBooks = new ArrayList<>();
                 }
 
-
+                //Dodanie książki do reszty wypożyczeń na karcie użytkownika.
                 library.loggedUser.card.borrowedBooks.add(selectedBook);
 
                 System.out.println("Sukces! Wypożyczyłeś: " + selectedBook.title);
