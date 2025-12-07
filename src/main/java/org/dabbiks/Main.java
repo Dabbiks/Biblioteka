@@ -14,7 +14,7 @@ public class Main {
     public static Scanner scanner;
 
     public static void main(String[] args) {
-1
+
         {
             try {
                 library = new Library();
