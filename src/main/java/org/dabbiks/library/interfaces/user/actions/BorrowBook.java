@@ -23,7 +23,7 @@ public class BorrowBook {
         // Nieskończona pętla pozwala użytkownikowi próbować do skutku lub zrezygnować (wpisując X)
         while (true) {
             Utils.clearConsole();
-            System.out.println("=== DOSTĘPNE KSIĄŻKI ===");
+            System.out.println("Dostępne książki:");
             System.out.println("Wpisz numer książki, którą chcesz wypożyczyć (lub X aby wyjść):");
 
             // Wyświetlamy listę książek z numerkami
@@ -48,7 +48,7 @@ public class BorrowBook {
                     library.loggedUser.card.borrowedBooks.add(selectedBook);
                     System.out.println("Pomyślnie wypożyczono: " + selectedBook.title);
 
-                    // WAŻNE: Zapisujemy zmiany na dysku!
+                    // Zapisujemy zmiany
                     try {
                         Data.saveAll(DataType.USER, library.users);
                     } catch (IOException e) {
