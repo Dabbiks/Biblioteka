@@ -20,38 +20,42 @@ public class BorrowBook {
             System.out.println("Niestety, biblioteka jest pusta.");
             return;
         }
-
+        // Główna pętla programu - pozwala użytkownikowi próbować wypożyczyć książkę
+        // wielokrotnie w przypadku błędu (np. wpisania złego numeru), dopóki nie wybierze 'X'.
         while (true) {
             Utils.clearConsole();
             System.out.println("Wypożyczenie książki");
             System.out.println("Wpisz numer książki (lub 'X' aby wyjść):");
             System.out.println("---------------------------------");
-
+            //Wyświetlamy listę wszystkich książek dodając (i+1) przy wyświetlaniu numeru by numeracja nie zaczynała się od 0
             for (int i = 0; i < library.books.size(); i++) {
                 Book book = library.books.get(i);
                 System.out.println((i + 1) + ". " + book.title + " - " + book.author);
             }
 
             String input = scanner.nextLine();
-
+            //Jeśli użytkownik wprowadzi X przerywamy operacje
             if (input.equalsIgnoreCase("X")) {
                 return;
             }
 
             try {
                 int bookNumber;
+                // Próba konwersji wpisanego tekstu na liczbę całkowitą
                 try {
                     bookNumber = Integer.parseInt(input);
                 } catch (NumberFormatException e) {
+                    // Jeśli użytkownik wpisze tekst zamiast liczby, rzucamy wyjątek z komunikatem
                     throw new LibraryException("To nie jest liczba! Wpisz cyfrę.");
                 }
-
+                // Zamiana numeru wybranego przez użytkownika (np. 1) na indeks tablicy (np. 0)
                 int index = bookNumber - 1;
-
+                int index = bookNumber - 1;
+                //Sprawdzenie, czy podany numer mieści się w zakresie listy książek
                 if (index < 0 || index >= library.books.size()) {
                     throw new LibraryException("Nieprawidłowy numer. Taka książka nie istnieje.");
                 }
-
+                // Pobranie konkretnego obiektu książki z listy
                 Book selectedBook = library.books.get(index);
 
                 if (library.loggedUser.card.borrowedBooks == null) {
