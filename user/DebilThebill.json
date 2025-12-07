@@ -1,0 +1,18 @@
+{
+  "card": {
+    "id": 6,
+    "status": "WHITE_CARD",
+    "borrowedBooks": [
+      {
+        "pages": 30,
+        "title": "Avengers",
+        "author": "Jonathan Hickman",
+        "releaseDate": 1963,
+        "genre": "COMIC"
+      }
+    ]
+  },
+  "name": "Debil",
+  "surname": "Thebill",
+  "pesel": "11111111111"
+}
