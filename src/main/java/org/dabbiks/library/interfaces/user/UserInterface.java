@@ -14,7 +14,7 @@ import static org.dabbiks.Main.library;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
-    List<String> options = List.of("1", "2", "3");
+    List<String> options = List.of("1", "2", "3", "4");
     String answer = "";
 
     User user = library.loggedUser;
