@@ -1,6 +1,6 @@
 package org.dabbiks.item;
 
-public class Book extends Item {
+public class Book extends Item implements Comparable<Book> {
 
     public int pages;
 
@@ -12,5 +12,9 @@ public class Book extends Item {
     @Override
     public String generateFileName() {
         return title.replaceAll(" ", "");
+    }
+
+    public int compareTo(Book otherBook) {
+        return this.title.compareTo(otherBook.title);
     }
 }

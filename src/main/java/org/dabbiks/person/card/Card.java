@@ -29,8 +29,10 @@ public class Card {
     public static int getNextId() {
         int index = 1;
         for (User user : library.users) {
-            if (user.card.getId() > index) {
-                index = user.card.getId();
+            if (user.card != null) {
+                if (user.card.getId() > index) {
+                    index = user.card.getId();
+                }
             }
         }
         index++;
