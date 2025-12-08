@@ -1,9 +1,10 @@
 {
   "card": {
-    "id": 2,
-    "status": "WHITE_CARD"
+    "id": 7,
+    "status": "WHITE_CARD",
+    "borrowedBooks": []
   },
   "name": "Mikolaj",
   "surname": "Grotek",
-  "pesel": "12345678910"
+  "pesel": "12365478910"
 }
