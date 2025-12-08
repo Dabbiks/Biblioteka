@@ -3,7 +3,7 @@ package org.dabbiks.library.interfaces.owner.actions;
 import org.dabbiks.Utils;
 import org.dabbiks.data.Data;
 import org.dabbiks.data.DataType;
-import org.dabbiks.library.EmployeeNotFoundException;
+import org.dabbiks.library.interfaces.owner.EmployeeNotFoundException;
 import org.dabbiks.library.Library;
 import org.dabbiks.person.Employee;
 
