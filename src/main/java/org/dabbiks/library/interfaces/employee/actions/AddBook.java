@@ -6,6 +6,7 @@ import org.dabbiks.data.DataType;
 import org.dabbiks.item.Audiobook;
 import org.dabbiks.item.Book;
 import org.dabbiks.item.Genre;
+import org.dabbiks.library.interfaces.ErrorType;
 import org.dabbiks.library.interfaces.employee.EmployeeInterface;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class AddBook {
                 System.out.println("DODAWANIE NOWEJ KSIĄŻKI");
                 System.out.println("Krok 1: Podaj tytuł: ");
                 String title = scanner.nextLine();
-                while(title.length() < 2){
+                while (isCorrect(title, 2, 30, true, true) != ErrorType.NULL) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać tytuł! (Od 2 znaków)");
                     title = scanner.nextLine();
@@ -53,7 +54,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 2: Podaj autora (Imię Nazwisko): ");
                 String author = scanner.nextLine();
-                while(author.length() < 2){
+                while (isCorrect(author, 2, 20, true, false) != ErrorType.NULL) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać autora! (Od 2 znaków)");
                     author = scanner.nextLine();
@@ -62,7 +63,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 3: Podaj rok wydania: ");
                 int year = scanner.nextInt();
-                while(year < 999){
+                while (year < 1000) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać prawidłowy rok! (4 cyfry)");
                     year = scanner.nextInt();
@@ -98,7 +99,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 5: Podaj liczbę stron: ");
                 int pages = scanner.nextInt();
-                while(pages < 1){
+                while (pages < 1) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dokładną liczbę stron!");
                     pages = scanner.nextInt();
@@ -133,7 +134,7 @@ public class AddBook {
                 System.out.println("DODAWANIE NOWEGO AUDIOBOOKA");
                 System.out.println("Krok 1: Podaj tytuł: ");
                 String title = scanner.nextLine();
-                while(title.length() < 2){
+                while (isCorrect(title, 2, 20, true, false) != ErrorType.NULL) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać tytuł! (Od 2 znaków)");
                     title = scanner.nextLine();
@@ -143,7 +144,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 2: Podaj autora (Imię Nazwisko): ");
                 String author = scanner.nextLine();
-                while(author.length() < 2){
+                while (isCorrect(author, 2, 20, true, false) != ErrorType.NULL) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać autora! (Od 2 znaków)");
                     author = scanner.nextLine();
@@ -152,7 +153,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 3: Podaj rok wydania: ");
                 int year = scanner.nextInt();
-                while(year < 999){
+                while (year < 1000) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dokładny rok! (4 znaki)");
                     year = scanner.nextInt();
@@ -187,7 +188,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 4: Podaj czas trwania (w minutach): ");
                 int recordTime = scanner.nextInt();
-                while(recordTime < 2){
+                while (recordTime < 2) {
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dobry czas!");
                     recordTime = scanner.nextInt();
@@ -196,7 +197,7 @@ public class AddBook {
                 Utils.clearConsole();
 
                 //Dodawanie audiobooka do listy
-                Audiobook audiobooks = new Audiobook(title, author, year, genre ,recordTime);
+                Audiobook audiobooks = new Audiobook(title, author, year, genre, recordTime);
                 library.audiobooks.add(audiobooks);
                 Data.saveAll(DataType.AUDIOBOOK, library.audiobooks);
 
@@ -216,5 +217,13 @@ public class AddBook {
 
             }
         }
+    }
+
+    private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {
+        if (string.length() < minimal) return ErrorType.TOO_SHORT;
+        if (string.length() > maximal) return ErrorType.TOO_LONG;
+        if (!string.matches("[a-zA-Z]+") && lettersAllowed && !numbersAllowed) return ErrorType.ONLY_LETTERS;
+        if (!string.matches("\\d+") && !lettersAllowed && numbersAllowed) return ErrorType.ONLY_NUMBERS;
+        return ErrorType.NULL;
     }
 }

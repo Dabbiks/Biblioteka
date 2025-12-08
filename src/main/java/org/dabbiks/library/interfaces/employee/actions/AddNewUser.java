@@ -3,7 +3,9 @@ package org.dabbiks.library.interfaces.employee.actions;
 import org.dabbiks.Utils;
 import org.dabbiks.data.Data;
 import org.dabbiks.data.DataType;
+import org.dabbiks.library.interfaces.ErrorType;
 import org.dabbiks.library.interfaces.employee.EmployeeInterface;
+import org.dabbiks.library.interfaces.user.UserLogin;
 import org.dabbiks.person.User;
 import org.dabbiks.person.card.Card;
 import java.io.IOException;
@@ -30,25 +32,25 @@ public class AddNewUser {
         System.out.println("DODAWANIE NOWEGO UŻYTKOWNIKA");
         System.out.println("Krok 1: Wpisz imię: ");
         String name = scanner.nextLine();
-        while(name.length() < 3){
+        while (isCorrect(name, 2, 20, true, false) != ErrorType.NULL){
             Utils.clearConsole();
-            System.out.println("Proszę wpisać imie! (Od 2 znaków)");
+            System.out.println("Proszę wpisać imie! (Od 2 do 20 znaków)");
             name = scanner.nextLine();
         }
 
         Utils.clearConsole();
         System.out.println("Krok 2: Wpisz nazwisko: ");
         String surname = scanner.nextLine();
-        while(surname.length() < 3){
+        while (isCorrect(surname, 2, 30, true, false) != ErrorType.NULL){
             Utils.clearConsole();
-            System.out.println("Proszę wpisać nazwisko! (Od 2 znaków)");
+            System.out.println("Proszę wpisać nazwisko! (Od 2 do 30 znaków)");
             surname = scanner.nextLine();
         }
 
         Utils.clearConsole();
 
         String pesel = "";
-        while (pesel.length() != 11) {
+        while (isCorrect(pesel, 11, 11, false, true) != ErrorType.NULL){
             Utils.clearConsole();
             System.out.println("Krok 3: Wpisz PESEL (musi mieć 11 cyfr): ");
             pesel = scanner.nextLine();
@@ -78,6 +80,14 @@ public class AddNewUser {
         EmployeeInterface empInterface = new EmployeeInterface();
         empInterface.employeeInterface();
 
+    }
+
+    private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {
+        if (string.length() < minimal) return ErrorType.TOO_SHORT;
+        if (string.length() > maximal) return ErrorType.TOO_LONG;
+        if (!string.matches("[a-zA-Z]+") && lettersAllowed && !numbersAllowed) return ErrorType.ONLY_LETTERS;
+        if (!string.matches("\\d+") && !lettersAllowed && numbersAllowed) return ErrorType.ONLY_NUMBERS;
+        return ErrorType.NULL;
     }
 }
 
