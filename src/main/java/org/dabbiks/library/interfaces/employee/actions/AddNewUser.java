@@ -30,10 +30,20 @@ public class AddNewUser {
         System.out.println("DODAWANIE NOWEGO UŻYTKOWNIKA");
         System.out.println("Krok 1: Wpisz imię: ");
         String name = scanner.nextLine();
+        if(name.length() < 2){
+            Utils.clearConsole();
+            System.out.println("Proszę wpisać imie! (Od 2 znaków)");
+            name = scanner.nextLine();
+        }
 
         Utils.clearConsole();
         System.out.println("Krok 2: Wpisz nazwisko: ");
         String surname = scanner.nextLine();
+        if(surname.length() < 2){
+            Utils.clearConsole();
+            System.out.println("Proszę wpisać nazwisko! (Od 2 znaków)");
+            surname = scanner.nextLine();
+        }
 
         Utils.clearConsole();
 
