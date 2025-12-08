@@ -43,7 +43,7 @@ public class AddBook {
                 System.out.println("DODAWANIE NOWEJ KSIĄŻKI");
                 System.out.println("Krok 1: Podaj tytuł: ");
                 String title = scanner.nextLine();
-                if(title.length() < 2){
+                while(title.length() < 2){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać tytuł! (Od 2 znaków)");
                     title = scanner.nextLine();
@@ -53,7 +53,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 2: Podaj autora (Imię Nazwisko): ");
                 String author = scanner.nextLine();
-                if(author.length() < 2){
+                while(author.length() < 2){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać autora! (Od 2 znaków)");
                     author = scanner.nextLine();
@@ -62,7 +62,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 3: Podaj rok wydania: ");
                 int year = scanner.nextInt();
-                if(year < 999){
+                while(year < 999){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać prawidłowy rok! (4 cyfry)");
                     year = scanner.nextInt();
@@ -98,7 +98,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 5: Podaj liczbę stron: ");
                 int pages = scanner.nextInt();
-                if(pages < 1){
+                while(pages < 1){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dokładną liczbę stron!");
                     pages = scanner.nextInt();
@@ -133,7 +133,7 @@ public class AddBook {
                 System.out.println("DODAWANIE NOWEGO AUDIOBOOKA");
                 System.out.println("Krok 1: Podaj tytuł: ");
                 String title = scanner.nextLine();
-                if(title.length() < 2){
+                while(title.length() < 2){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać tytuł! (Od 2 znaków)");
                     title = scanner.nextLine();
@@ -143,7 +143,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 2: Podaj autora (Imię Nazwisko): ");
                 String author = scanner.nextLine();
-                if(author.length() < 2){
+                while(author.length() < 2){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać autora! (Od 2 znaków)");
                     author = scanner.nextLine();
@@ -152,7 +152,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 3: Podaj rok wydania: ");
                 int year = scanner.nextInt();
-                if(year < 999){
+                while(year < 999){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dokładny rok! (4 znaki)");
                     year = scanner.nextInt();
@@ -187,7 +187,7 @@ public class AddBook {
                 Utils.clearConsole();
                 System.out.println("Krok 4: Podaj czas trwania (w minutach): ");
                 int recordTime = scanner.nextInt();
-                if(recordTime < 2){
+                while(recordTime < 2){
                     Utils.clearConsole();
                     System.out.println("Proszę wpisać dobry czas!");
                     recordTime = scanner.nextInt();
