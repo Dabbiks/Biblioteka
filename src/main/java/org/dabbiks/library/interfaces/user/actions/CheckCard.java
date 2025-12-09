@@ -12,13 +12,12 @@ public class CheckCard {
     Scanner scanner = new Scanner(System.in);
 
     public void checkCard() {
-        // Czyścimy konsolę dla czytelności
+        // Czyścimy konsolę
         Utils.clearConsole();
 
         System.out.println("Dane karty:");
-        // Wyświetlamy podstawowe dane użytkownika
+        // Wyświetlamy dane użytkownika
         System.out.println("Właściciel: " + library.loggedUser.getName() + " " + library.loggedUser.getSurname());
-        // Wyświetlamy ID i status karty
         System.out.println(library.loggedUser.getIdentificator());
         System.out.println("\n--- Lista wypożyczonych książek ---");
 

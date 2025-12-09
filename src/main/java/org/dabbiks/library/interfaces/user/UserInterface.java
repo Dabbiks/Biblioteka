@@ -9,8 +9,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
 
     public void userInterface() {
-        // --- TA PĘTLA JEST KLUCZOWA ---
-        // Bez niej, po wykonaniu jednej akcji (np. CheckCard), program dojdzie do końca metody i się wyłączy.
+       //Pętla główna
         while (true) {
             Utils.clearConsole();
             System.out.println("=== MENU UŻYTKOWNIKA ===");
@@ -25,18 +24,18 @@ public class UserInterface {
             switch (input.toUpperCase()) {
                 case "1":
                     new BorrowBook().borrowBook();
-                    break; // Po zakończeniu wracamy do pętli while
+                    break;
                 case "2":
                     new ReturnBook().returnBook();
-                    break; // Po zakończeniu wracamy do pętli while
+                    break;
                 case "3":
                     new CheckCard().checkCard();
-                    break; // Tu właśnie wracasz po wpisaniu 'X' w CheckCard!
+                    break;
                 case "4":
                     new Unregister().unregister();
                     break;
                 case "X":
-                    return; // Dopiero tutaj wychodzimy całkowicie z menu użytkownika
+                    return;
                 default:
                     System.out.println("Nieznana opcja.");
             }

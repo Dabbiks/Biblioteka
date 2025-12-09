@@ -18,13 +18,13 @@ public class Unregister {
 
         String decision = scanner.nextLine();
 
-        // Sprawdzamy, czy użytkownik wpisał dokładnie "TAK" (ignorując wielkość liter)
+        // Sprawdzamy, czy użytkownik wpisał dokładnie "TAK"
         if (decision.equalsIgnoreCase("TAK")) {
 
-            // KROK 1: Usuwamy użytkownika z listy w pamięci RAM
+            //Usuwamy użytkownika z listy
             library.users.remove(library.loggedUser);
 
-            // KROK 2: Aktualizujemy pliki na dysku
+            //Aktualizacja plików
             try {
                 //Kasujemy stare pliki
                 Data.clearAll(DataType.USER);

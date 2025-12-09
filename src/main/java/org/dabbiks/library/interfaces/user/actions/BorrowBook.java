@@ -11,7 +11,7 @@ import java.util.Scanner;
 import static org.dabbiks.Main.library;
 
 public class BorrowBook {
-    // Obiekt Scanner służy do pobierania danych wpisywanych przez użytkownika w konsoli
+    // Dodajemy scanner do pobierania danych
     Scanner scanner = new Scanner(System.in);
 
     public void borrowBook() {
@@ -20,20 +20,44 @@ public class BorrowBook {
             System.out.println("Niestety, biblioteka jest pusta.");
             return;
         }
-        // Główna pętla programu - pozwala użytkownikowi próbować wypożyczyć książkę
-        // wielokrotnie w przypadku błędu (np. wpisania złego numeru), dopóki nie wybierze 'X'.
-        while (true) {
-            Utils.clearConsole();
-            System.out.println("Wypożyczenie książki");
-            System.out.println("Wpisz numer książki (lub 'X' aby wyjść):");
-            System.out.println("---------------------------------");
-            //Wyświetlamy listę wszystkich książek dodając (i+1) przy wyświetlaniu numeru by numeracja nie zaczynała się od 0
-            for (int i = 0; i < library.books.size(); i++) {
-                Book book = library.books.get(i);
-                System.out.println((i + 1) + ". " + book.title + " - " + book.author);
-            }
+        //Główna pętla odpowiadająca za wybór książki
+        Utils.clearConsole();
+        System.out.println("=== WYPOŻYCZANIE KSIĄŻKI ===");
 
-            String input = scanner.nextLine();
+
+        System.out.println("Wpisz tytuł/autora, aby wyszukać (lub wciśnij Enter, aby zobaczyć wszystkie):");
+
+        String searchPhrase = scanner.nextLine().trim().toLowerCase();
+
+        System.out.println("---------------------------------");
+        System.out.println("Dostępne książki:");
+
+        boolean foundAny = false; // Sprawdzamy, czy cokolwiek znaleźliśmy
+
+        //Pętla wyświetlająca tylko pasujące książki
+        for (int i = 0; i < library.books.size(); i++) {
+            Book book = library.books.get(i);
+
+            // Pobieramy dane książki i zamieniamy na małe litery
+            String title = book.title.toLowerCase();
+            String author = book.author.toLowerCase();
+
+
+            if (searchPhrase.isEmpty() || title.contains(searchPhrase) || author.contains(searchPhrase)) {
+
+                System.out.println((i + 1) + ". " + book.title + " - " + book.author);
+                foundAny = true;
+            }
+        }
+
+        if (!foundAny) {
+            System.out.println("(Nie znaleziono książek pasujących do: '" + searchPhrase + "')");
+        }
+
+        System.out.println("---------------------------------");
+        System.out.println("Wpisz numer książki do wypożyczenia (lub 'X' aby wyjść):");
+
+        String input = scanner.nextLine();
             //Jeśli użytkownik wprowadzi X przerywamy operacje
             if (input.equalsIgnoreCase("X")) {
                 return;
@@ -80,4 +104,3 @@ public class BorrowBook {
             }
         }
     }
-}
