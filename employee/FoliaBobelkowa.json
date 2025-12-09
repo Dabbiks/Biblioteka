@@ -1,0 +1,18 @@
+{
+  "employeeId": 2,
+  "password": "haslohaslo",
+  "salary": 0.0,
+  "totalBonus": 0.0,
+  "workSchedule": {
+    "Poniedziałek": "Wolne",
+    "Wtorek": "Wolne",
+    "Środa": "Wolne",
+    "Czwartek": "Wolne",
+    "Piątek": "Wolne",
+    "Sobota": "Wolne",
+    "Niedziela": "Wolne"
+  },
+  "name": "Folia",
+  "surname": "Bobelkowa",
+  "pesel": "44455566677"
+}

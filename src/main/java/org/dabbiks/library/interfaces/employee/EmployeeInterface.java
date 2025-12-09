@@ -36,7 +36,7 @@ public class EmployeeInterface implements LibraryGui {
             if (answer.equals("2")) searchBook.searchItems();
             if (answer.equals("3")) addBook.addNewBook();
             if (answer.equals("4")) quitJob.quitJob(employee);
-            if (answer.equals("X")) return;
+            if (answer.equals("X")) { Utils.saveAllData(); System.exit(0); }
         }
     }
 }

@@ -39,7 +39,7 @@ public class OwnerInterface implements LibraryGui {
                     new ManageSchedule().manageSchedule(library, scanner);
                     break;
                 case "X":
-                    return;
+                    { Utils.saveAllData(); System.exit(0); }
                 default:
                     System.out.println("Wybierz poprawną opcję.");
             }

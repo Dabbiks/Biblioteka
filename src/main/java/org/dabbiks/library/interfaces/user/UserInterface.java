@@ -35,7 +35,7 @@ public class UserInterface implements LibraryGui {
                     new Unregister().unregister();
                     break;
                 case "X":
-                    return;
+                    { Utils.saveAllData(); System.exit(0); }
                 default:
                     System.out.println("Nieznana opcja.");
             }

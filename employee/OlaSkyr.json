@@ -1,0 +1,18 @@
+{
+  "employeeId": 1,
+  "password": "haslohaslo",
+  "salary": 0.0,
+  "totalBonus": 0.0,
+  "workSchedule": {
+    "Poniedziałek": "Wolne",
+    "Wtorek": "Wolne",
+    "Środa": "Wolne",
+    "Czwartek": "Wolne",
+    "Piątek": "Wolne",
+    "Sobota": "Wolne",
+    "Niedziela": "Wolne"
+  },
+  "name": "Ola",
+  "surname": "Skyr",
+  "pesel": "12341234123"
+}

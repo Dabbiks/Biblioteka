@@ -56,6 +56,6 @@ public class QuitJob {
             } while (!s.equals("1"));
 
             Library library = new Library();
-            library.LobbyInterface();
+            library.lobbyInterface();
     }
 }

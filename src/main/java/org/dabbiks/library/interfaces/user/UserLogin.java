@@ -2,7 +2,6 @@ package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
 import org.dabbiks.library.interfaces.ErrorType;
-import org.dabbiks.library.interfaces.LibraryGui;
 import org.dabbiks.person.User;
 import org.dabbiks.person.card.Card;
 
@@ -44,7 +43,7 @@ public class UserLogin {
             name = scanner.nextLine();
 
             if (name.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 
@@ -61,7 +60,7 @@ public class UserLogin {
             surname = scanner.nextLine();
 
             if (surname.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 
@@ -78,7 +77,7 @@ public class UserLogin {
             pesel = scanner.nextLine();
 
             if (pesel.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 
@@ -112,7 +111,7 @@ public class UserLogin {
             name = scanner.nextLine();
 
             if (name.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 
@@ -134,7 +133,7 @@ public class UserLogin {
             index = scanner.nextLine();
 
             if (index.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 

@@ -2,8 +2,7 @@ package org.dabbiks.library.interfaces.employee;
 import org.dabbiks.Utils;
 import org.dabbiks.library.interfaces.ErrorType;
 import org.dabbiks.person.Employee;
-import org.dabbiks.person.User;
-import java.util.List;
+
 import java.util.Scanner;
 
 import static org.dabbiks.Main.library;
@@ -28,7 +27,7 @@ public class EmployeeLogin {
             index = scanner.nextLine();
 
             if (index.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 
@@ -54,7 +53,7 @@ public class EmployeeLogin {
             password = scanner.nextLine();
 
             if (password.equals("X")) {
-                library.LobbyInterface();
+                library.lobbyInterface();
                 return;
             }
 

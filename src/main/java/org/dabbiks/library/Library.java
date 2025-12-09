@@ -34,19 +34,25 @@ public class Library {
     public Library() throws IOException {
     }
 
-    public void LobbyInterface() {
-        Scanner scanner = new Scanner(System.in);
-        List<String> options = List.of("1", "2", "3");
+    Scanner scanner = new Scanner(System.in);
+
+    public void lobbyInterface() {
+        List<String> options = List.of("1", "2", "3", "4", "X");
         String answer = "";
 
         while (!options.contains(answer)) {
             Utils.clearConsole();
-            System.out.println("Wybierz, na jaki typ konta chcesz się zalogować");
+            System.out.println("Wybierz akcję");
             System.out.println("Wpisz odpowiednią cyfrę w konsoli, żeby przejść dalej");
+            System.out.println("-----------------------");
+            System.out.println("Zaloguj jako:");
             System.out.println("1. Użytkownik");
             System.out.println("2. Pracownik");
             System.out.println("3. Właściciel");
-            System.out.println("...............");
+            System.out.println("-----------------------");
+            System.out.println("4. Sprawdź godziny otwarcia");
+            System.out.println("X. Zamknij program");
+            System.out.println("-----------------------");
             answer = scanner.nextLine();
             Utils.clearConsole();
         }
@@ -54,6 +60,18 @@ public class Library {
         if (answer.equals("1")) userLogin.userLogin();
         if (answer.equals("2")) employeeLogin.employeeInterface();
         if (answer.equals("3")) ownerLogin.login();
+        if (answer.equals("4")) openingHours();
+        if (answer.equals("X")) { Utils.saveAllData(); System.exit(0); }
+    }
 
+    private void openingHours() {
+        String[] days = {"Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"};
+        String[] hours = {"10:00 - 19:00", "10:00 - 19:00", "10:00 - 19:00", "10:00 - 19:00", "10:00 - 19:00", "12:00 - 15:00", "Zamknięte"};
+        for (int i = 0; i < days.length; i++) {
+            System.out.println(days[i] + " | " + hours[i]);
+        }
+        System.out.println("Wpisz cokolwiek, żeby wrócić do menu głównego");
+        scanner.nextLine();
+        lobbyInterface();
     }
 }
