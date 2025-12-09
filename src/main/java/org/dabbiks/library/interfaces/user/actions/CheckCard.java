@@ -2,8 +2,8 @@ package org.dabbiks.library.interfaces.user.actions;
 
 import org.dabbiks.Utils;
 import org.dabbiks.item.Book;
+import org.dabbiks.item.Item; // Import do Upcastingu
 import java.util.Scanner;
-
 
 import static org.dabbiks.Main.library;
 
@@ -12,27 +12,37 @@ public class CheckCard {
     Scanner scanner = new Scanner(System.in);
 
     public void checkCard() {
+        // Pętla główna metody
+        while (true) {
+            Utils.clearConsole();
+            System.out.println("Dane karty:");
 
-        Utils.clearConsole();
+            System.out.println("Właściciel: " + library.loggedUser.getName() + " " + library.loggedUser.getSurname());
+            System.out.println(library.loggedUser.getIdentificator());
 
-        System.out.println("Dane karty:");
-        //Pokazanie danych użytkownika
-        System.out.println("Właściciel: " + library.loggedUser.getName() + " " + library.loggedUser.getSurname());
-        System.out.println(library.loggedUser.getIdentificator());
-        System.out.println("\n--- Lista wypożyczonych książek ---");
+            System.out.println("\n--- Lista wypożyczonych książek ---");
 
+            if (library.loggedUser.card.borrowedBooks == null || library.loggedUser.card.borrowedBooks.isEmpty()) {
+                System.out.println("(Brak wypożyczeń)");
+            } else {
+                for (Book book : library.loggedUser.card.borrowedBooks) {
+                    // TU JEST UPCASTING: Przekazujemy 'Book', metoda odbiera 'Item'
+                    wyswietlTytul(book);
+                }
+            }
 
-        if (library.loggedUser.card.borrowedBooks == null || library.loggedUser.card.borrowedBooks.isEmpty()) {
-            System.out.println("(Brak wypożyczeń)");
-        } else {
-            // Pętla "foreach" - przechodzi przez każdą książkę na liście
-            for (Book book : library.loggedUser.card.borrowedBooks) {
-                System.out.println("- " + book.title + " (" + book.author + ")");
+            // Te instrukcje MUSZĄ być wewnątrz pętli while (przed jej zamknięciem)
+            System.out.println("\nWpisz 'X' i naciśnij Enter, aby wrócić do menu...");
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("X")) {
+                return;
             }
         }
+    }
 
-
-        System.out.println("\nNaciśnij Enter, aby wrócić do menu...");
-        scanner.nextLine();
+    // Metoda pomocnicza (musi być wewnątrz klasy CheckCard, ale poza metodą checkCard)
+    private void wyswietlTytul(Item item) {
+        System.out.println("- " + item.title + " (" + item.author + ")");
     }
 }
