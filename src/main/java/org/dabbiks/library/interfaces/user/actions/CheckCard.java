@@ -41,7 +41,7 @@ public class CheckCard {
         }
     }
 
-    // Metoda pomocnicza (musi być wewnątrz klasy CheckCard, ale poza metodą checkCard)
+
     private void wyswietlTytul(Item item) {
         System.out.println("- " + item.title + " (" + item.author + ")");
     }
