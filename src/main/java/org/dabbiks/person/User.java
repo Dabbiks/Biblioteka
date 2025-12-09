@@ -21,7 +21,7 @@ public class User extends Person {
 
     @Override
     public String getIdentificator() {
-        return "Identyfikator użytkownika: " + card.getId() + ", Status: " + card.getStatus().name();
+        return "Identyfikator użytkownika: " + card.getId() + ", Status: " + card.getStatus().getName();
     }
 
     @Override

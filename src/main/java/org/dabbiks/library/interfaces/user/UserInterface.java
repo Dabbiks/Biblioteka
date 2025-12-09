@@ -1,45 +1,45 @@
 package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
-import org.dabbiks.library.interfaces.user.actions.BorrowBook;
-import org.dabbiks.library.interfaces.user.actions.CheckCard;
-import org.dabbiks.library.interfaces.user.actions.ReturnBook;
-import org.dabbiks.library.interfaces.user.actions.Unregister;
-import org.dabbiks.person.User;
-
-import java.util.List;
+import org.dabbiks.library.interfaces.user.actions.*;
 import java.util.Scanner;
 
-import static org.dabbiks.Main.library;
-
 public class UserInterface {
+
     Scanner scanner = new Scanner(System.in);
-    List<String> options = List.of("1", "2", "3", "4");
-    String answer = "";
-
-    User user = library.loggedUser;
-
-    public BorrowBook borrowBook = new BorrowBook();
-    public CheckCard checkCard = new CheckCard();
-    public ReturnBook returnBook = new ReturnBook();
-    public Unregister unregister = new Unregister();
 
     public void userInterface() {
-        while (!options.contains(answer)) {
+        // --- TA PĘTLA JEST KLUCZOWA ---
+        // Bez niej, po wykonaniu jednej akcji (np. CheckCard), program dojdzie do końca metody i się wyłączy.
+        while (true) {
             Utils.clearConsole();
-            System.out.println("Witaj " + user.getName());
-            System.out.println("Wybierz co chcesz zrobic");
-            System.out.println("1. Wynajmij książkę");
-            System.out.println("2. Sprawdź swoją kartę");
-            System.out.println("3. Zwróć książkę");
-            System.out.println("4. Wypisz się z biblioteki");
-            answer = scanner.nextLine();
-            if (answer.equals("1")) borrowBook.borrowBook();
-            if (answer.equals("2")) checkCard.checkCard();
-            if(answer.equals("3")) returnBook.returnBook();
-            if (answer.equals("4")) unregister.unregister();
+            System.out.println("=== MENU UŻYTKOWNIKA ===");
+            System.out.println("1. Wypożycz książkę");
+            System.out.println("2. Zwróć książkę");
+            System.out.println("3. Sprawdź kartę");
+            System.out.println("4. Usuń konto");
+            System.out.println("X. Wyloguj");
+
+            String input = scanner.nextLine();
+
+            switch (input.toUpperCase()) {
+                case "1":
+                    new BorrowBook().borrowBook();
+                    break; // Po zakończeniu wracamy do pętli while
+                case "2":
+                    new ReturnBook().returnBook();
+                    break; // Po zakończeniu wracamy do pętli while
+                case "3":
+                    new CheckCard().checkCard();
+                    break; // Tu właśnie wracasz po wpisaniu 'X' w CheckCard!
+                case "4":
+                    new Unregister().unregister();
+                    break;
+                case "X":
+                    return; // Dopiero tutaj wychodzimy całkowicie z menu użytkownika
+                default:
+                    System.out.println("Nieznana opcja.");
+            }
         }
-
-
     }
 }

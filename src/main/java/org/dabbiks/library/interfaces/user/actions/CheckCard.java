@@ -14,15 +14,12 @@ public class CheckCard {
     public void checkCard() {
         // Czyścimy konsolę dla czytelności
         Utils.clearConsole();
-        System.out.println("=== TWOJA KARTA BIBLIOTECZNA ===");
 
+        System.out.println("Dane karty:");
         // Wyświetlamy podstawowe dane użytkownika
-        // Metody getName() i getSurname() mamy dzięki dziedziczeniu po klasie Person
         System.out.println("Właściciel: " + library.loggedUser.getName() + " " + library.loggedUser.getSurname());
-
-        // Wyświetlamy ID i status karty (metoda getIdentificator jest w klasie User)
+        // Wyświetlamy ID i status karty
         System.out.println(library.loggedUser.getIdentificator());
-
         System.out.println("\n--- Lista wypożyczonych książek ---");
 
         // Sprawdzamy, czy lista książek w ogóle istnieje (czy nie jest nullem)
@@ -30,7 +27,6 @@ public class CheckCard {
             System.out.println("(Brak wypożyczeń)");
         } else {
             // Pętla "foreach" - przechodzi przez każdą książkę na liście
-
             for (Book book : library.loggedUser.card.borrowedBooks) {
                 System.out.println("- " + book.title + " (" + book.author + ")");
             }
