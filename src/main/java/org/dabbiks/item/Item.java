@@ -8,10 +8,10 @@ public abstract class Item {
     public Genre genre;
 
     public Item(String title, String author, int releaseDate, Genre genre) {
-        this.title = title;
-        this.author = author;
+        this.title       = title;
+        this.author      = author;
         this.releaseDate = releaseDate;
-        this.genre = genre;
+        this.genre       = genre;
     }
 
     @Override

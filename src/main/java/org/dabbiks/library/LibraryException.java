@@ -1,4 +1,4 @@
-package org.dabbiks.library.interfaces;
+package org.dabbiks.library;
 
 
 public class LibraryException extends Exception {

@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Main {
 
     public static Library library;
-    public static Scanner scanner;
 
     public static void main(String[] args) {
 
