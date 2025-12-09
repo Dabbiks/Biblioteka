@@ -2,6 +2,7 @@ package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
 import org.dabbiks.library.interfaces.ErrorType;
+import org.dabbiks.library.interfaces.LibraryGui;
 import org.dabbiks.person.User;
 import org.dabbiks.person.card.Card;
 
@@ -14,7 +15,7 @@ public class UserLogin {
 
     public Scanner scanner = new Scanner(System.in);
 
-    public void userInterface() {
+    public void userLogin() {
         List<String> accountTypes = List.of("1", "2");
         String answer = "";
 
@@ -158,7 +159,7 @@ public class UserLogin {
         library.loggedUser = findUser(i);
         if (library.loggedUser == null) throw new RuntimeException();
         UserInterface ui = new UserInterface();
-        ui.userInterface();
+        ui.gui();
     }
 
     private ErrorType isCorrect(String string, int minimal, int maximal, boolean lettersAllowed, boolean numbersAllowed) {

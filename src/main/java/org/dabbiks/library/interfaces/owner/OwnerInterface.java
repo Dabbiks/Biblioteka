@@ -3,17 +3,19 @@ package org.dabbiks.library.interfaces.owner;
 import org.dabbiks.Utils;
 import org.dabbiks.library.Library;
 
+import org.dabbiks.library.interfaces.LibraryGui;
 import org.dabbiks.library.interfaces.owner.actions.GiveBonus;
 import org.dabbiks.library.interfaces.owner.actions.ManageSchedule;
 import org.dabbiks.library.interfaces.owner.actions.RegisterNewEmployee;
 
 import java.util.Scanner;
 
+import static org.dabbiks.Main.library;
 
 
-public class OwnerInterface {
+public class OwnerInterface implements LibraryGui {
 
-    public void ownerInterface(Library library) {
+    public void gui() {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -22,7 +24,7 @@ public class OwnerInterface {
             System.out.println("1. Zarejestruj nowego pracownika");
             System.out.println("2. Menu wypłacania premii");
             System.out.println("3. Zarządzaj grafikiem pracownika");
-            System.out.println("0. Powrót do menu głównego");
+            System.out.println("X. Zamknij program");
 
             String answer = scanner.nextLine();
 
@@ -36,8 +38,8 @@ public class OwnerInterface {
                 case "3":
                     new ManageSchedule().manageSchedule(library, scanner);
                     break;
-                case "0":
-                    library.LobbyInterface();
+                case "X":
+                    return;
                 default:
                     System.out.println("Wybierz poprawną opcję.");
             }

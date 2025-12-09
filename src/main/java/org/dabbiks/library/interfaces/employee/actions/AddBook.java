@@ -124,7 +124,7 @@ public class AddBook {
                 } while (!s.equals("1"));
 
                 EmployeeInterface empInterface = new EmployeeInterface();
-                empInterface.employeeInterface();
+                empInterface.gui();
 
             }
 
@@ -213,7 +213,7 @@ public class AddBook {
                 } while (!s.equals("1"));
 
                 EmployeeInterface empInterface = new EmployeeInterface();
-                empInterface.employeeInterface();
+                empInterface.gui();
 
             }
         }

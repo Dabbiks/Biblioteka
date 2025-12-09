@@ -34,7 +34,7 @@ public class QuitJob {
             }
             if (answer.equals("2")) {
                 EmployeeInterface empInterface = new EmployeeInterface();
-                empInterface.employeeInterface();
+                empInterface.gui();
             }
         }
     }

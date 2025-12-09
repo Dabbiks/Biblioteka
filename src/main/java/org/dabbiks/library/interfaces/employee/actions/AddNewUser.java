@@ -78,7 +78,7 @@ public class AddNewUser {
         } while (!s.equals("1"));
 
         EmployeeInterface empInterface = new EmployeeInterface();
-        empInterface.employeeInterface();
+        empInterface.gui();
 
     }
 

@@ -51,9 +51,9 @@ public class Library {
             Utils.clearConsole();
         }
 
-        if (answer.equals("1")) userLogin.userInterface();
+        if (answer.equals("1")) userLogin.userLogin();
         if (answer.equals("2")) employeeLogin.employeeInterface();
-        if (answer.equals("3")) ownerLogin.login(this);
+        if (answer.equals("3")) ownerLogin.login();
 
     }
 }

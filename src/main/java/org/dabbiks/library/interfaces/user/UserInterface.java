@@ -1,14 +1,15 @@
 package org.dabbiks.library.interfaces.user;
 
 import org.dabbiks.Utils;
+import org.dabbiks.library.interfaces.LibraryGui;
 import org.dabbiks.library.interfaces.user.actions.*;
 import java.util.Scanner;
 
-public class UserInterface {
+public class UserInterface implements LibraryGui {
 
     Scanner scanner = new Scanner(System.in);
 
-    public void userInterface() {
+    public void gui() {
         while (true) {
             Utils.clearConsole();
             System.out.println("=== MENU UŻYTKOWNIKA ===");

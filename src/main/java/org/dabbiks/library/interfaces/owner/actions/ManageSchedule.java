@@ -56,7 +56,6 @@ public class ManageSchedule {
 
                 emp.setShift(day, hours);
 
-                Data.saveAll(DataType.EMPLOYEE, library.employees);
                 System.out.println("Zaktualizowano grafik pracownika");
 
             }
@@ -64,8 +63,6 @@ public class ManageSchedule {
             System.out.println("Błąd! ID musi być liczbą");
         } catch (EmployeeNotFoundException e) {
             System.out.println("Błąd operacji: " + e.getMessage());
-        } catch (IOException e) {
-            System.out.println("Błąd podczas zapisywania danych");
         }
         System.out.println("Naciśnij ENTER, aby wrócić...");
         scanner.nextLine();

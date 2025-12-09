@@ -50,13 +50,8 @@ public class RegisterNewEmployee {
         Employee newEmployee = new Employee(name, surname, pesel, password, newID, false);
         library.employees.add(newEmployee);
 
-        try {
-            Data.saveAll(DataType.EMPLOYEE, library.employees);
-            System.out.println("Pomyślnie dodano nowego pracownika: " + name + " " + surname);
-            System.out.println("ID Pracownika: " + newID);
-        } catch (IOException e) {
-            System.out.println("Błąd podczas zapisywania danych: " + e.getMessage());
-        }
+        System.out.println("Pomyślnie dodano nowego pracownika: " + name + " " + surname);
+        System.out.println("ID Pracownika: " + newID);
         System.out.println("Naciśnij ENTER, aby kontynuować...");
         scanner.nextLine();
     }

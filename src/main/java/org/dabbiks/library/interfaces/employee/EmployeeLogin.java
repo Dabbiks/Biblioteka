@@ -75,7 +75,7 @@ public class EmployeeLogin {
         if (library.loggedEmployee == null) throw new RuntimeException();
 
         EmployeeInterface empInterface = new EmployeeInterface();
-        empInterface.employeeInterface();
+        empInterface.gui();
     }
 
 
