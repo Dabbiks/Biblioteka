@@ -3,7 +3,7 @@
   "password": "haslohaslo",
   "isOwner": false,
   "salary": 0.0,
-  "totalBonus": 0.0,
+  "totalBonus": 1111112.111111111,
   "workSchedule": {
     "Poniedziałek": "Wolne",
     "Wtorek": "Wolne",
@@ -11,7 +11,7 @@
     "Czwartek": "Wolne",
     "Piątek": "Wolne",
     "Sobota": "Wolne",
-    "Niedziela": "Wolne"
+    "Niedziela": "10 10 10 10"
   },
   "name": "Mikolaj",
   "surname": "G",

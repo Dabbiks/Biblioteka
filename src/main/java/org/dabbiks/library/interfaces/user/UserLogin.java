@@ -12,7 +12,7 @@ import static org.dabbiks.Main.library;
 
 public class UserLogin {
 
-    Scanner scanner = new Scanner(System.in);
+    public Scanner scanner = new Scanner(System.in);
 
     public void userInterface() {
         List<String> accountTypes = List.of("1", "2");
@@ -70,7 +70,7 @@ public class UserLogin {
                 System.out.println(isCorrect(surname, 2, 20, true, false).getString());
         }
 
-        while (!User.canRegister(pesel) || isCorrect(pesel, 11, 11, false, true) != ErrorType.NULL) {
+        while (!canRegister(pesel) || isCorrect(pesel, 11, 11, false, true) != ErrorType.NULL) {
             System.out.println("Rejestracja konta. Wpisz X, żeby wyjść");
             System.out.println("Krok 3: Wpisz swój pesel (11 znaków)");
             System.out.println(name + " | " + surname + " | .....");
@@ -83,7 +83,7 @@ public class UserLogin {
 
             Utils.clearConsole();
 
-            if (!User.canRegister(pesel)) System.out.println(ErrorType.ALREADY_REGISTERED);
+            if (!canRegister(pesel)) System.out.println(ErrorType.ALREADY_REGISTERED);
             if (isCorrect(pesel, 11, 11, false, true) != ErrorType.NULL)
                 System.out.println(isCorrect(pesel, 11, 11, false, true).getString());
         }
@@ -191,6 +191,15 @@ public class UserLogin {
                 return user;
         }
         return null;
+    }
+
+    private boolean canRegister(String string) {
+        for (User user : library.users) {
+            if (user.getPesel().equals(string)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

@@ -29,17 +29,4 @@ public class User extends Person {
         return getName() + getSurname();
     }
 
-    public static boolean canRegister(String string) {
-        boolean bool = true;
-        for (User user : library.users) {
-            if (user.getPesel().equals(string)) {
-                bool = false;
-                break;
-            }
-        }
-        return bool;
-    }
-
-
-
 }
