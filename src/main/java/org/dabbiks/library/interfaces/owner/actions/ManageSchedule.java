@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class ManageSchedule {
 
     public static final List<String> VALID_DAYS = Arrays.asList(
-           "poniedziałek", "wtorek", "środa", "czwartek", "piatek"
+           "poniedziałek", "wtorek", "środa", "czwartek", "piatek", "sobota", "niedziela"
     );
     private String hours;
 
