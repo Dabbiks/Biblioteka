@@ -82,7 +82,6 @@ public class BorrowBook {
                     library.loggedUser.card.borrowedBooks = new ArrayList<>();
                 }
 
-                //Dodanie książki do reszty wypożyczeń na karcie użytkownika.
                 library.loggedUser.card.borrowedBooks.add(selectedBook);
 
                 System.out.println("Sukces! Wypożyczyłeś: " + selectedBook.title);
