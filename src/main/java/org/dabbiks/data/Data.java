@@ -21,8 +21,6 @@ public class Data {
     // W klasie jest cały system zapisujący pliki do formatu .json na komputerze
     // Zawartość plików jest pobierana przy otwieraniu programu i zapisywana przy zamknięciu
     // dzięki czemu nie musimy co chwilę pobierać ich w kodzie. Nie ma potrzeby nic tu robić
-    // Jeśli potrzebujesz w jakimś fragmencie dostępu do danych korzystaj z list utworzonych w
-    // klasie Library, tam znajdziesz również poradnik jak to zrobić
 
     // Metoda do zapisywania pojedyńczego pliku (raczej do usunięcia)
     public static <T> void toJson(DataType dataType, String fileName, T object) throws IOException {

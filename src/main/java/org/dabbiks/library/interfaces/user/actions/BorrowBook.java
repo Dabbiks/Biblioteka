@@ -3,7 +3,7 @@ package org.dabbiks.library.interfaces.user.actions;
 import org.dabbiks.Utils;
 
 import org.dabbiks.item.Book;
-import org.dabbiks.library.interfaces.LibraryException;
+import org.dabbiks.library.LibraryException;
 
 import java.util.ArrayList;
 import java.util.Scanner;

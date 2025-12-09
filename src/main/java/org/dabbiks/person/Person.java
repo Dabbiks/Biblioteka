@@ -7,9 +7,9 @@ public abstract class Person {
     private final String pesel;
 
     public Person(String name, String surname, String pesel) {
-        this.name = name;
+        this.name    = name;
         this.surname = surname;
-        this.pesel = pesel;
+        this.pesel   = pesel;
     }
 
     @Override
@@ -21,14 +21,10 @@ public abstract class Person {
 
     public abstract String getIdentificator();
 
-    public String getName() {
-        return name;
-    }
+    public String getName()    { return name; }
 
     public String getSurname() { return surname; }
 
-    public String getPesel() {
-        return pesel;
-    }
+    public String getPesel()   { return pesel; }
 
 }
