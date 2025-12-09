@@ -11,16 +11,15 @@ import java.util.Scanner;
 import static org.dabbiks.Main.library;
 
 public class BorrowBook {
-    // Dodajemy scanner do pobierania danych
     Scanner scanner = new Scanner(System.in);
 
     public void borrowBook() {
-    //Sprawdzamy czy w bibliotece są książki
+    //Sprawdzenie czy są książki
         if (library.books.isEmpty()) {
             System.out.println("Niestety, biblioteka jest pusta.");
             return;
         }
-        //Główna pętla odpowiadająca za wybór książki
+        //Wybór książki
         Utils.clearConsole();
         System.out.println("=== WYPOŻYCZANIE KSIĄŻKI ===");
 
@@ -32,13 +31,12 @@ public class BorrowBook {
         System.out.println("---------------------------------");
         System.out.println("Dostępne książki:");
 
-        boolean foundAny = false; // Sprawdzamy, czy cokolwiek znaleźliśmy
+        boolean foundAny = false;
 
-        //Pętla wyświetlająca tylko pasujące książki
         for (int i = 0; i < library.books.size(); i++) {
             Book book = library.books.get(i);
 
-            // Pobieramy dane książki i zamieniamy na małe litery
+
             String title = book.title.toLowerCase();
             String author = book.author.toLowerCase();
 
@@ -58,30 +56,27 @@ public class BorrowBook {
         System.out.println("Wpisz numer książki do wypożyczenia (lub 'X' aby wyjść):");
 
         String input = scanner.nextLine();
-            //Jeśli użytkownik wprowadzi X przerywamy operacje
+
             if (input.equalsIgnoreCase("X")) {
                 return;
             }
 
             try {
                 int bookNumber;
-                // Próba konwersji wpisanego tekstu na liczbę całkowitą
                 try {
                     bookNumber = Integer.parseInt(input);
                 } catch (NumberFormatException e) {
-                    // Jeśli użytkownik wpisze tekst zamiast liczby, rzucamy wyjątek z komunikatem
                     throw new LibraryException("To nie jest liczba! Wpisz cyfrę.");
                 }
-                // Zamiana numeru wybranego przez użytkownika (np. 1) na indeks tablicy (np. 0)
+
                 int index = bookNumber - 1;
 
-                //Sprawdzenie, czy podany numer mieści się w zakresie listy książek
+                //Sprawdzenie czy numer mieści się w zakresie
                 if (index < 0 || index >= library.books.size()) {
                     throw new LibraryException("Nieprawidłowy numer. Taka książka nie istnieje.");
                 }
-                // Pobranie konkretnego obiektu książki z listy
+
                 Book selectedBook = library.books.get(index);
-                // Sprawdzenie, czy użytkownik ma już zainicjalizowaną listę wypożyczonych książek
                 if (library.loggedUser.card.borrowedBooks == null) {
                     //Utworzenie nowej listy jeśli jest taka potrzeba
                     library.loggedUser.card.borrowedBooks = new ArrayList<>();

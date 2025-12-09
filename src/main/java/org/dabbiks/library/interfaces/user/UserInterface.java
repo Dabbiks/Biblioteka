@@ -9,7 +9,6 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
 
     public void userInterface() {
-       //Pętla główna
         while (true) {
             Utils.clearConsole();
             System.out.println("=== MENU UŻYTKOWNIKA ===");

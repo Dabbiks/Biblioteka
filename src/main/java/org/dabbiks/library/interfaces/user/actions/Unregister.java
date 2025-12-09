@@ -18,17 +18,15 @@ public class Unregister {
 
         String decision = scanner.nextLine();
 
-        // Sprawdzamy, czy użytkownik wpisał dokładnie "TAK"
         if (decision.equalsIgnoreCase("TAK")) {
 
-            //Usuwamy użytkownika z listy
+
             library.users.remove(library.loggedUser);
 
             //Aktualizacja plików
             try {
-                //Kasujemy stare pliki
+
                 Data.clearAll(DataType.USER);
-                //Zapisujemy nową listę
                 Data.saveAll(DataType.USER, library.users);
 
                 System.out.println("Twoje konto zostało usunięte.");
@@ -36,7 +34,6 @@ public class Unregister {
                 System.out.println("Wystąpił błąd podczas usuwania plików.");
             }
 
-          //Zamykamy program
             System.exit(0);
 
         } else {
