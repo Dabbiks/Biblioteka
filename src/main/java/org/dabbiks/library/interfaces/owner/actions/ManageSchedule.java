@@ -8,10 +8,18 @@ import org.dabbiks.library.Library;
 import org.dabbiks.person.Employee;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class ManageSchedule {
+
+    public static final List<String> VALID_DAYS = Arrays.asList(
+           "poniedziałek", "wtorek", "środa", "czwartek", "piatek"
+    );
+    private String hours;
+
     public void manageSchedule(Library library, Scanner scanner) {
         Utils.clearConsole();
         System.out.println("Zarządzanie grafikiem pracowników:");
@@ -27,10 +35,24 @@ public class ManageSchedule {
             }
             System.out.println("Czy chcesz zmienić godziny? (y/n)");
             if (scanner.nextLine().equalsIgnoreCase("y")) {
-                System.out.println("Podaj dzień tygodnia: ");
-                String day = scanner.nextLine();
-                System.out.println("Podaj godziny(8:00-16:00 lub Wolne): ");
-                String hours = scanner.nextLine();
+                String day;
+                String hours;
+
+                do{
+                    System.out.println("Podaj dzień tygodnia: ");
+                    day = scanner.nextLine().toLowerCase();
+                    if (!VALID_DAYS.contains(day)){
+                        System.out.println("Wprowadź poprawny dzień tygodnia.");
+                    }
+                }while (!VALID_DAYS.contains(day));
+                do{
+                    System.out.println("Podaj godziny (8:00-16:00 lub Wolne): ");
+                    hours = scanner.nextLine();
+                    if (!validHoursFormat(hours)){
+                        System.out.println("Wprowadź poprawnie godziny");
+                }
+                }while (!validHoursFormat(hours));
+
 
                 emp.setShift(day, hours);
 
@@ -43,10 +65,18 @@ public class ManageSchedule {
         } catch (EmployeeNotFoundException e) {
             System.out.println("Błąd operacji: " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Bład podczas zapisywania danych");
+            System.out.println("Błąd podczas zapisywania danych");
         }
         System.out.println("Naciśnij ENTER, aby wrócić...");
         scanner.nextLine();
+    }
+
+    private boolean validHoursFormat(String hours){
+        if (hours.trim().equalsIgnoreCase("Wolne")){
+            return true;
+        }
+        String timeFormat = "^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])-(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$";
+        return hours.matches(timeFormat);
     }
 
     private Employee findEmployeeOrThrow(Library library, int id) throws EmployeeNotFoundException {
